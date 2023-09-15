@@ -1,7 +1,7 @@
 # NWM / NextGen / NWIS Flows
 library(nwmTools); library(arrow); library(dataRetrieval)
 
-ngen_sims = read.csv('data/10244950_PET_2_CFE_X.csv') 
+ngen_sims = read.csv(file.path(getwd(), '/data/ngen-experiment/10244950_PET_2_CFE_X.csv')) 
 
 ind = findNLDI(nwis = "10244950")
 
@@ -16,4 +16,4 @@ ngen_sims = mutate(ngen_sims,
                    cumNWIS = cumsum(replace_na(q_cms_obs, 0))/10000,
                    cumNWM = cumsum(replace_na(NWM20_cms, 0))/10000)
 
-write_parquet(ngen_sims, "data/obs_sim_retro20_flows_10244950.parquet")
+write_parquet(ngen_sims, file.path(getwd(), "data/ngen-experiment/obs_sim_retro20_flows_10244950.parquet"))

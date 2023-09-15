@@ -9,9 +9,9 @@ dir.create("data/tifs", showWarnings = FALSE)
 # To date, I have not found a seamless alternative for these functions
 # 
 ppt_stack    <- stack(list.files(glue("{download_dir}ppt_grids/"),  full.names = TRUE))
-et_stack     <- stack(list.files(glue("{download_dir}/pet_grids/"), full.names = TRUE))
-asnow_stack  <- stack(list.files(glue("{download_dir}/asnow_grids/"), full.names = TRUE))
-snowc_stack  <- stack(list.files(glue("{download_dir}/snowc_grids/"),  full.names = TRUE))
+et_stack     <- stack(list.files(glue("{download_dir}pet_grids/"), full.names = TRUE))
+asnow_stack  <- stack(list.files(glue("{download_dir}asnow_grids/"), full.names = TRUE))
+snowc_stack  <- stack(list.files(glue("{download_dir}snowc_grids/"),  full.names = TRUE))
 ids <- rep(1:(nlayers(pptstack)/12), each = 12)
 
 if(!file.exists("data/tifs/annual_mean_ppt.tif")){

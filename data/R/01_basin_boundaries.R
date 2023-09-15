@@ -2,12 +2,19 @@
 # Unzip and fill in the filepath here:
 library(dplyr); library(sf);library(arrow)
 
-gages2_dir = "private/"
+gages2_dir = "data/private/"
 
-if(!dir.exists(glue("{gages2_di}")))
+if(!dir.exists(glue("{gages2_dir}")))
 url <- "https://water.usgs.gov/GIS/dsdl/boundaries_shapefiles_by_aggeco.zip"
+
+if(dir.exists(gages2_dir)) {
+  cat("Folder found.\n")
+} else {
+  dir.create(gages2_dir, showWarnings = FALSE)
+  cat("Folder created successfully.\n")
+}
 out_f <- file.path(gages2_dir, basename(url))
-if(!file.exists(file.path(out, basename(url)))) { 
+if(!file.exists(file.path(out_f, basename(url)))) { 
   httr::GET(url, httr::write_disk(out_f, overwrite = TRUE))
 }
 outdir <- gsub(".zip", "", out_f)

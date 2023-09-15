@@ -15,7 +15,7 @@ dates <- seq.Date(as.Date("1993-01-01"), as.Date("2018-12-31"), by = "m")
 # Hit "Get Data"
 # Download Links List = subset_NLDAS_FORA0125_M_002_20230907_224958_.txt
 
-ppt_files <- readLines('data/subset_NLDAS_FORA0125_M_002_20230907_224958_.txt')[-1]
+ppt_files <- readLines(glue('{download_dir}subset_NLDAS_FORA0125_M_002_20230907_224958_.txt'))[-1]
 
 # Use to test...
 # ppt_files = ppt_files[1:24]
